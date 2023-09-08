@@ -19,12 +19,16 @@
       justify-content: center;
       align-items: center;
       position: relative;
-      cursor: pointer;
     }
 
     #gif_div img{
       height: 400px;
       width: 400px;
+      cursor: pointer;
+    }
+
+    #gif_div img:hover{
+      border: 3px solid yellow;
     }
 
     .bounce-animation {
@@ -36,6 +40,50 @@
       50% {transform: scale(1.2);}
     }
 
+    #question {
+      position: fixed;
+      bottom: -15%;
+      left: 50%;
+      transform: translateX(-50%) scale(0.2); /* Center horizontally and scale down */
+      display: flex; /* Use flexbox for centering vertically */
+      justify-content: center; /* Center horizontally within the parent */
+      align-items: center; /* Center vertically within the parent */
+    }
+
+    #question img {
+      width: 400px;
+      height: 350px;
+      max-width: 100%;
+      max-height: 100%;
+      cursor: pointer;
+    }
+
+    #question img:hover {
+      transform: scale(1.3);
+    }
+
+    #popup1{
+      width: 200px;
+      position: absolute;
+      left: 5%;
+      top: 5%;
+      background-color: white;
+      border: 1px solid;
+      padding: 10px;
+      display: none;
+    }
+
+    #popup2{
+      width: 200px;
+      position: absolute;
+      right: 5%;
+      top: 5%;
+      background-color: white;
+      border: 1px solid;
+      padding: 10px;
+      display: none;
+    }
+
   </style>
 </head>
 <body>
@@ -44,7 +92,19 @@
   <h1 id="title">WHAT IS A WEBSITE?</h1>
 
   <div id="gif_div">
-    <img src="1.gif" id="gif_img">
+    <img src="9.gif" id="gif_img">
+  </div>
+
+  <div id="question">
+    <img id="png" src="question.png">
+  </div>
+
+  <div id="popup1">
+    <p>hello?</p>
+  </div>
+
+  <div id="popup2">
+    <p>"There are endless possibilities as to what a website could be. What kind of room is a website? Or is a website more like a house? A boat? A cloud? A garden? A puddle? Whatever it is, there’s potential for a self-reflexive feedback loop: when you put energy into a website, in turn the website helps form your own identity." <br><br> -Laurel Schwulst</p>
   </div>
 
 <script>
@@ -64,13 +124,24 @@
   ];
 
   let counter = 0;
-  gifDiv.addEventListener('click', () => {
+  gifImage.addEventListener('click', () => {
     gifDiv.classList.add('bounce-animation');
     gifImage.src = gifURLs[counter];
     counter = (counter + 1) % gifURLs.length;
     setTimeout(() => {
                 gifDiv.classList.remove('bounce-animation');
             }, 500);
+  });
+
+
+  let popup1 = document.getElementById('popup1');
+  let popup2 = document.getElementById('popup2');
+  let question = document.getElementById('png');
+
+  question.addEventListener('click', function() {
+    popup1.style.display = 'block';
+    popup2.style.display = 'block';
+    question.style.transform = 'rotate(180deg)'
   });
 
 </script>
