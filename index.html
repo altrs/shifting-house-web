@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+  <title>What is a website?</title>
+  <style>
+    #title{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    #gif_div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+    }
+
+    #gif_div img{
+      height: 400px;
+      width: 400px;
+    }
+
+    .bounce-animation {
+      animation: bounce 0.5s;
+    }
+
+    @keyframes bounce {
+      0%, 100% {transform: scale(1);}
+      50% {transform: scale(1.2);}
+    }
+
+  </style>
+</head>
+<body>
+
+  <br><br>
+  <h1 id="title">WHAT IS A WEBSITE?</h1>
+
+  <div id="gif_div">
+    <img src="1.gif" id="gif_img">
+  </div>
+
+<script>
+  const gifDiv = document.getElementById('gif_div');
+  const gifImage = document.getElementById('gif_img');
+
+  const gifURLs = [
+      '1.gif',
+      '8.gif',
+      '3.gif',
+      '4.gif',
+      '5.gif',
+      '7.gif',
+      '6.gif',
+      '2.gif',
+      '9.gif'
+  ];
+
+  let counter = 0;
+  gifDiv.addEventListener('click', () => {
+    gifDiv.classList.add('bounce-animation');
+    gifImage.src = gifURLs[counter];
+    counter = (counter + 1) % gifURLs.length;
+    setTimeout(() => {
+                gifDiv.classList.remove('bounce-animation');
+            }, 500);
+  });
+
+</script>
+
+</body>
+</html>
