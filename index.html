@@ -63,7 +63,7 @@
     }
 
     #popup1{
-      width: 200px;
+      width: 275px;
       position: absolute;
       left: 5%;
       top: 5%;
@@ -71,6 +71,10 @@
       border: 1px solid;
       padding: 10px;
       display: none;
+    }
+
+    #popup1:hover{
+      background-color: #94b7f7;
     }
 
     #popup2{
@@ -82,6 +86,10 @@
       border: 1px solid;
       padding: 10px;
       display: none;
+    }
+
+    #popup2:hover{
+      background-color: #91bd7d;
     }
 
   </style>
@@ -100,11 +108,11 @@
   </div>
 
   <div id="popup1">
-    <p>hello?</p>
+    <p>“My website is a shifting house next to a river of knowledge,” by Laurel Schwulst reminded me just how much I generally take the internet for granted as a platform for expression. Based on my personal experience, I think it can be difficult to translate written code into creative works of art (especially when you’re first learning to code). A blank canvas is one thing when you have a pencil in hand, it’s a completely different thing when you only have a keyboard and the html/css/javascript docs. While I continue to grapple with this hurdle, Schwulst’s article seems to be a great place to start when you don’t know what to do with a blank webpage. Ultimately, I deeply agree with Berners Lee that we must have greater ambitions for the web, considering the near-limitless possibilities for web pages. By combining code with interaction, time, storytelling, sound, and whatever else you can think of, the internet is more than capable enough of fostering IRL creative-mode.</p>
   </div>
 
   <div id="popup2">
-    <p>"There are endless possibilities as to what a website could be. What kind of room is a website? Or is a website more like a house? A boat? A cloud? A garden? A puddle? Whatever it is, there’s potential for a self-reflexive feedback loop: when you put energy into a website, in turn the website helps form your own identity." <br><br> -Laurel Schwulst</p>
+    <p>"There are <mark>endless possibilities</mark> as to what a website could be. What kind of room is a website? Or <i>is a website more like a house? A boat? A cloud? A garden? A puddle? </i> Whatever it is, there’s potential for a self-reflexive feedback loop: when you put energy into a website, in turn the website helps form your own identity." <br><br> -Laurel Schwulst<br><br> "I want to challenge us all to <mark>have greater ambitions</mark> for the web. I want the web to <i>reflect our hopes and fulfill our dreams</i>, rather than magnify our fears and deepen our divisions.” <br><br> -Berners Le</p>
   </div>
 
 <script>
@@ -128,20 +136,19 @@
     gifDiv.classList.add('bounce-animation');
     gifImage.src = gifURLs[counter];
     counter = (counter + 1) % gifURLs.length;
-    setTimeout(() => {
-                gifDiv.classList.remove('bounce-animation');
-            }, 500);
+    setTimeout(() => {gifDiv.classList.remove('bounce-animation');}, 500);
   });
-
 
   let popup1 = document.getElementById('popup1');
   let popup2 = document.getElementById('popup2');
   let question = document.getElementById('png');
+  let rotation = 0;
 
   question.addEventListener('click', function() {
+    rotation += 180;
     popup1.style.display = 'block';
     popup2.style.display = 'block';
-    question.style.transform = 'rotate(180deg)'
+    question.style.transform = `rotate(${rotation}deg)`;
   });
 
 </script>
